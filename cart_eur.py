@@ -1,8 +1,6 @@
 import requests
 import time
 import threading
-
-# Абсолютні імпорти через назву папки
 from full_trades.input_orders import trade_input_loop, update_latest_price_id
 from full_trades.trades_db import init_db
 from full_db.db import save_price
@@ -12,7 +10,7 @@ INTERVAL = 60
 API_URL = "https://cdn.moneyconvert.net/api/latest.json"
 last_price = None
 
-# Ініціалізація бази
+
 init_db()
 
 def process_new_price(price):
