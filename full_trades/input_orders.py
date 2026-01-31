@@ -1,4 +1,10 @@
 from full_trades.trades_db import init_db, create_trade, close_trade
+from full_trades.trades_db import (
+    init_db,
+    create_trade,
+    close_trade
+    )
+
 
 latest_price_id = None
 
@@ -7,7 +13,7 @@ def update_latest_price_id(pid):
     latest_price_id = pid
 
 def trade_input_loop():
-    init_db()  # створюємо таблиці
+    init_db()  
     current_trade_id = None
     print("=== TRADE INPUT MODULE ===")
 
@@ -18,12 +24,12 @@ def trade_input_loop():
                 print("Only buy or sell")
                 continue
             if latest_price_id is None:
-                print("⛔ No price yet")
+                print(" No price yet")
                 continue
 
             position_type_id = 1 if cmd == "buy" else 2
             current_trade_id = create_trade(position_type_id, latest_price_id)
-            print(f"✅ Position open: {cmd.upper()} | ID = {current_trade_id}")
+            print(f" Position open: {cmd.upper()} | ID = {current_trade_id}")
 
         else:
             close_cmd = input("Did you close position? (yes): ").lower().strip()

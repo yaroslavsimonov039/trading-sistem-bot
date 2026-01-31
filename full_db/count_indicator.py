@@ -2,7 +2,7 @@ import math
 import sqlite3
 from .db import get_last_n_prices, DB_NAME
 
-# ---------- ІНДИКАТОРИ ----------
+
 def sma(period=14):
     prices = get_last_n_prices(period)
     prices = [float(p) for p in prices if p is not None and p != '']

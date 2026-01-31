@@ -2,7 +2,7 @@ import os
 import sqlite3
 from datetime import datetime
 
-# -------- ШЛЯХ ДО БАЗИ --------
+
 DATA_FOLDER = "full_db"
 DB_FILE = "prices.db"
 
@@ -11,7 +11,6 @@ if not os.path.exists(DATA_FOLDER):
 
 DB_NAME = os.path.join(DATA_FOLDER, DB_FILE)
 
-# -------- РОБОТА З ЦІНАМИ --------
 def save_price(price: float):
     conn = sqlite3.connect(DB_NAME)
     cur = conn.cursor()
